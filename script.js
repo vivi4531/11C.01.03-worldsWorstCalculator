@@ -1,6 +1,6 @@
 "use strict";
 
-let result = "";
+let resultat; 
 
 //setting up
 window.addEventListener("load", start);
@@ -41,4 +41,10 @@ function calculationPlus(firstnumber, secondnumber) {
   //takes the numbers fra readOperator and add them
   const resultat = firstnumber + secondnumber;
   console.log(resultat);
+
+  writeResultIntoFirstNumberField();
+}
+
+function writeResultIntoFirstNumberField(){
+   document.querySelector("#firstnumber").textContent = resultat; 
 }

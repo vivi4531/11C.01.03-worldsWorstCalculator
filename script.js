@@ -1,42 +1,44 @@
 "use strict";
 
-//Setting up
-//Load Site
+let result = "";
+
+//setting up
 window.addEventListener("load", start);
 
-function start(){
-    console.log("Lortet virker");
-    clickCalculate();
+function start() {
+  console.log("start");
+  clickCalculate();
 }
 
-function clickCalculate(){
-    console.log("Det bliver klikket på calculate");
-
-    document.querySelector("#calculate").addEventListener("click", readFirstNumber);
+function clickCalculate() {
+  console.log("click calculate");
+  document.querySelector("#calculate").addEventListener("click", readOperator);
 }
 
-function readFirstNumber(){
-    console.log("Første tal læst");
-
-    //Read first number field 
-    const firstNumber = document.querySelector("#firstnumber").value;
-
-    readSecondNumber();
+function readFirstNumber() {
+  console.log("read first number");
+  //read first number and convert string into a number
+  const firstNumber = parseInt(document.querySelector("#firstnumber").value);
+  return firstNumber;
 }
 
-function readSecondNumber(){
-    console.log("Andet tal læst");
-
-    //Read second number field 
-    const secondNumber = document.querySelector("#secondnumber").value;
-
-    readOperator;
+function readSecondNumber() {
+  //read second number and convert string into a number
+  console.log("read second number");
+  const secondNumber = parseInt(document.querySelector("#secondnumber").value);
+  return secondNumber;
 }
 
-function readOperator(){
-    console.log("Operator læst");
+function readOperator() {
+  //collect numbers
+  console.log("read operator");
+  const firstInputNumber = readFirstNumber();
+  const secondInputNumber = readSecondNumber();
+  calculationPlus(firstInputNumber, secondInputNumber);
+}
 
-    document.querySelector("#firstnumber").value = result; 
-
-    document.querySelector("#firstnumber" + "#secondnumber")
+function calculationPlus(firstnumber, secondnumber) {
+  //takes the numbers fra readOperator and add them
+  const resultat = firstnumber + secondnumber;
+  console.log(resultat);
 }

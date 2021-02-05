@@ -30,4 +30,13 @@ function readSecondNumber(){
     //Read second number field 
     const secondNumber = document.querySelector("#secondnumber").value;
 
+    readOperator;
+}
+
+function readOperator(){
+    console.log("Operator læst");
+
+    document.querySelector("#firstnumber").value = result; 
+
+    document.querySelector("#firstnumber" + "#secondnumber")
 }

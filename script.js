@@ -6,6 +6,7 @@ window.addEventListener("load", start);
 function start() {
   console.log("start");
   clickCalculate();
+document.querySelector("#clear").addEventListener("click", clearResults);
 }
 
 function clickCalculate() {
@@ -97,9 +98,6 @@ function writeResultIntoFirstNumberField(resultat){
     resultat = resultat.toFixed(intdecimals);
   }
 
-
-
-
   //Creates new <li>
   let listElement = document.createElement("li");
   //Prepares element with createTextNode and turns resultat into string
@@ -114,3 +112,6 @@ function writeResultIntoFirstNumberField(resultat){
   document.querySelector("#firstnumber").value = resultat.toString(); 
 }
 
+function clearResults(){
+  document.querySelector("#results").innerHTML = ""; 
+}

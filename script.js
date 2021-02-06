@@ -16,14 +16,14 @@ function clickCalculate() {
 function readFirstNumber() {
   console.log("read first number");
   //read first number and convert string into a number
-  const firstNumber = parseInt(document.querySelector("#firstnumber").value);
+  const firstNumber = parseFloat(document.querySelector("#firstnumber").value);
   return firstNumber;
 }
 
 function readSecondNumber() {
   //read second number and convert string into a number
   console.log("read second number");
-  const secondNumber = parseInt(document.querySelector("#secondnumber").value);
+  const secondNumber = parseFloat(document.querySelector("#secondnumber").value);
   return secondNumber;
 }
 
@@ -83,7 +83,23 @@ function calculationDiv(firstnumber, secondnumber) {
   writeResultIntoFirstNumberField(resultat);
 }
 
+function checkIfResultsShouldBeRounded(){
+  //Check if checkbox is checked
+  const checkbox = document.querySelector("#doround").checked; 
+  console.log(checkbox);
+  return checkbox; 
+}
+
 function writeResultIntoFirstNumberField(resultat){
+  if(checkIfResultsShouldBeRounded() == true){
+    const numberofdecimals = document.querySelector("#decimals").value; 
+    const intdecimals = parseInt(numberofdecimals);
+    resultat = resultat.toFixed(intdecimals);
+  }
+
+
+
+
   //Creates new <li>
   let listElement = document.createElement("li");
   //Prepares element with createTextNode and turns resultat into string
@@ -97,3 +113,4 @@ function writeResultIntoFirstNumberField(resultat){
   //Insert result in firstnumber field
   document.querySelector("#firstnumber").value = resultat.toString(); 
 }
+
